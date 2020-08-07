@@ -153,13 +153,16 @@ void spectral::degrade(double *syn, int ns)
 
 void spectral::degrade_one(spec_ft &ift, double *dat, int ns)
 {
-  
+
   int nw = ift.n;
   //double (&idat)[nw][ns] = *reinterpret_cast<double (*)[nw][ns]>(dat);
 
   
   
   for(int ss = 0; ss<ns; ss++){
+
+    for(int kk = 0; kk < ift.n; kk++)
+      dat[kk*ns+ss] = (dat[kk*ns+ss] + reg.sfac * dat[reg.scpos * ns + ss] ) / (1 + reg.sfac)
     
     /* --- pad data array --- */
     

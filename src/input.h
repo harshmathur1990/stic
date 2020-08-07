@@ -24,8 +24,9 @@ typedef line line_t;
 
 /* --- region struct --- */
 struct region{
-  double w0, dw, cscal;
+  double w0, dw, cscal, sfac;
   int nw, off;
+  int scpos; 
   std::vector<double> wav, nu;
   std::vector<int> idx;
   std::string inst, ifile;

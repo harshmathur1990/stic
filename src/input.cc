@@ -354,6 +354,13 @@ iput_t read_input(std::string filename, bool verbose){
 	  reg.inst = "none";
 	  reg.ifile = "none";
 	}
+  if(param.size() == 8){
+	  reg.scpos = std::stoi(param[6]);
+	  reg.sfac = std::stod(param[7]);
+	}else{
+	  reg.scpos = 0;
+	  reg.sfac = 0.0;
+	}
 
 	//
 	input.nw_tot += reg.nw;
