@@ -184,6 +184,8 @@ void comm_send_parameters(iput_t &input){
   for (int ll = 0;ll<nregions;ll++){
     status = MPI_Bcast(&input.regions[ll].w0, 3,   MPI_DOUBLE, 0, MPI_COMM_WORLD); 
      status = MPI_Bcast(&input.regions[ll].nw, 2,   MPI_INT, 0, MPI_COMM_WORLD);
+     status = MPI_Bcast(&input.regions[ll].scpos, 2,   MPI_INT, 0, MPI_COMM_WORLD);
+     status = MPI_Bcast(&input.regions[ll].sfac, 3,   MPI_DOUBLE, 0, MPI_COMM_WORLD); 
     //
     int tmp = (int)input.regions[ll].ifile.size() + 1;
     status = MPI_Bcast(&tmp, 1,   MPI_INT, 0, MPI_COMM_WORLD);
@@ -308,6 +310,8 @@ void comm_recv_parameters(iput_t &input){
   for (int ll = 0;ll<nregions;ll++){
     status = MPI_Bcast(&input.regions[ll].w0, 3,   MPI_DOUBLE, 0, MPI_COMM_WORLD);
     status = MPI_Bcast(&input.regions[ll].nw, 2,   MPI_INT, 0, MPI_COMM_WORLD);
+    status = MPI_Bcast(&input.regions[ll].scpos, 2,   MPI_INT, 0, MPI_COMM_WORLD);
+    status = MPI_Bcast(&input.regions[ll].sfac, 3,   MPI_DOUBLE, 0, MPI_COMM_WORLD); 
 
     {
       int tmp = 0;
