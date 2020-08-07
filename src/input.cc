@@ -347,7 +347,7 @@ iput_t read_input(std::string filename, bool verbose){
 	reg.nw = std::stoi(param[2]);
 	reg.cscal = std::stod(param[3]);
 	//
-	if(param.size() == 6){
+	if(param.size() >= 6){
 	  reg.inst = param[4];
 	  reg.ifile = param[5];
 	}else{
